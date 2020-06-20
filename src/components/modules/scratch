@@ -1,0 +1,40 @@
+
+                    <div className={this.state.happy}>
+                    <div>
+                        {this.state.messages.map((message, index) => (<Card bg={message.bg} className={message.source}>{message.message}</Card>))}
+                    </div>                              
+                        <div>
+                    <InputGroup className={this.state.messageForm}>
+                    <FormControl
+                        ref={(ref) => this.mainInput= ref}
+                        aria-describedby="basic-addon2"
+                        onChange={this.updateMessage}
+                        onFocus={event => {
+                            if (this.state.message !== "") {
+                            } else {this.setState({message: ""})}
+                        }
+
+                        }
+                        onKeyPress={event => {
+                        if (event.key === 'Enter') {
+                        this.sendMessage()}}
+                        }
+                    />
+                    <InputGroup.Append>
+                    <Button variant="outline-secondary" onClick={this.sendMessage}>SendChat</Button>
+                    </InputGroup.Append>
+                    </InputGroup>
+                    <Button variant="danger" onClick={this.clearMessages}>Clear</Button>
+                    </div>
+                </div>
+                <div className={this.state.youSad}>
+                    Sad
+                </div>
+                <div className={this.state.meSad}>
+                    Ignore
+                </div>
+      </Modal.Body>
+    </Modal>
+
+
+    <Button variant="danger" onClick={this.clearMessages}>Clear</Button>
