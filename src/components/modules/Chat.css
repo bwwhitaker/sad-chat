@@ -6,10 +6,12 @@
     
 }
 
+
+
 .modal,
 .modal-height {
-    min-height: 95%;
-    max-height: 95%;
+    min-height: 92%;
+    max-height: 92%;
     overflow: auto;
 }
 
