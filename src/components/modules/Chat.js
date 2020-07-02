@@ -122,7 +122,9 @@ class Chat extends React.Component {
         const tokenized = this.state.message
                 .toLowerCase()
                 .replace(/\n/g, ' ')
-                .replace(/[.,\/#!?$%\^&\*;:{}=_`\"~()]/g, ' ')
+                .replace(/[.,/#!?$%^&*;:{}=_"~()@]/g, ' ')
+                .replace(/@/g, ' ')
+                .replace(/\\/g, ' ')
                 .replace(/\s\s+/g, ' ')
                 .trim()
                 .split(' ');
@@ -227,4 +229,4 @@ class Chat extends React.Component {
     }
 }
 
-export default Chat;
+export default ReactTimeout(Chat);
