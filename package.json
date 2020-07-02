@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "autoprefixer": "^9.8.0",
     "bootstrap": "^4.5.0",
     "jquery": "^3.5.1",
     "natural": "^2.1.5",
@@ -13,7 +14,11 @@
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "^3.4.1",
+    "react-timeout": "^1.2.0",
+    "save": "^2.4.0",
+    "sentiment": "^5.0.2",
+    "typescript": "^3.9.5"
   },
   "scripts": {
     "start": "PORT=3006 react-scripts start",

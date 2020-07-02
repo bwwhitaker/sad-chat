@@ -23,6 +23,7 @@ class App extends React.Component {
   updateFriend(event){
     this.setState({friend : event.target.value})
     }
+    handleCloseClick = () => {}
   sendName = () => {
       if (this.state.friend === "") {
       } else {
@@ -35,12 +36,12 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <div>
-            <Modal animation={false} show={this.state.introVisible}>
+            <Modal animation={false} show={this.state.introVisible} backdrop="static" keyboard={false} onHide={this.state.handleCloseClick}>
               <Modal.Header>
                 Welcome to SadChat!
               </Modal.Header>
               <Modal.Body>
-                <InputGroup show ={this.state.introVisible} className="mb-3">
+                <InputGroup className="mb-3">
                   <FormControl
                     placeholder="Who's there?"
                     aria-label="Who's there?"
@@ -52,7 +53,7 @@ class App extends React.Component {
                     }
                   />
                 <InputGroup.Append>
-                  <Button variant="outline-secondary" onClick={this.sendName}>SendChat</Button>
+                  <Button variant="outline-secondary" onClick={this.sendName}>Send Chat</Button>
                 </InputGroup.Append>
                 </InputGroup>
 

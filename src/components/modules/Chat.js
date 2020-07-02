@@ -4,11 +4,17 @@ import Modal from 'react-bootstrap/Modal';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl'; 
 import Card from 'react-bootstrap/Card';
+import Sentiment from 'sentiment';
 import './Chat.css';
+import ReactTimeout from 'react-timeout'
+
+
+const sentiment = new Sentiment()
 
 
 
 class Chat extends React.Component {
+    
     constructor(props){
         super(props);
         this.state = {
@@ -19,6 +25,8 @@ class Chat extends React.Component {
         welcomemodal: "modal-height",
         message : "",
         nextMessage: "human-bubble hide",
+        tokens: [],
+        responseMessage: {"name": "sad", "source": "computer", "bg":"primary", "text": "Well,"},
         messageForm: "mb-3",
         happychat: false,
         messages: []
@@ -27,28 +35,33 @@ class Chat extends React.Component {
         this.setmeSad = this.setmeSad.bind(this);
         this.setyouSad = this.setyouSad.bind(this);
         this.updateMessage = this.updateMessage.bind(this);
+        this.findSentiment = this.findSentiment.bind(this);
+        this.getTokens = this.getTokens.bind(this);
+
     }
 
     componentDidMount() {
         const json = localStorage.getItem("messages");
         const messages = JSON.parse(json);
         if (messages) {
-          this.setState(() => ({ messages }));
+            this.setState(() => ({ messages }));
+            }
         }
-      }
 
-      componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps, prevState) {
         if (prevState.messages.length !== this.state.messages.length) {
-          const json = JSON.stringify(this.state.messages);
-          localStorage.setItem("messages", json);
-        }
-      }
+            const json = JSON.stringify(this.state.messages);
+            localStorage.setItem("messages", json);
+            }
+        } 
+
+    handleCloseClick = () => {}
+    
 
     setHappy(event){
         this.setState({happy : true})
         this.setState({welcome : "hide"})
-        let messages = [...this.state.messages]
-        let initialMessage = [{"name": "sad", "source": "computer", "bg":"primary", "message": "Well, isn't it so great that you're happy. Why should I be happy for you?"},{"name": "sad", "source": "human", "bg":"light", "message": "Well, isn't it so great that you're happy. Why should I be happy for you?"}]
+        let initialMessage = [{"name": "sad", "source": "computer", "bg":"primary", "text": `Well, ${this.props.FriendData}, isn't it so great that you're happy. Why should I be happy for you?`}]
         this.setState({messages : initialMessage })
         this.setState({welcomemodal: "hide"})
         this.setState({happychat:true})
@@ -70,34 +83,63 @@ class Chat extends React.Component {
         }   
         
     clearMessages = () => {
-        let messages = [...this.state.messages]
         this.setState({messages : []})
-    }
+        }
 
     
     scrollToBottom = () => {
         this.messagesEnd.scrollIntoView({ behavior: "auto" });
-      }
+        }
 
-    responseMessage = () => {
-        let messages = [...this.state.messages]
-        messages.push({"name":"sad","source": "computer", "bg":"primary", "message":"Oh, really now?"})
-        this.setState({messages})
+    handleClick = (e) => {
+        this.mainInput.value = "";
+        setTimeout(this.sendMessage, 100)
+        setTimeout(this.getTokens, 400)
+        setTimeout(this.sendReponse, 1000)
+    }
+
+    sendMessage = _ => {
+        if (this.state.message === "") {
+        } else {
+        let messages = [...this.state.messages];
+        messages.push({"name":this.props.FriendData,"source": "human", "bg":"light", "text":this.state.message})
+        this.findSentiment()
+        this.setState({ messages });
+        this.scrollToBottom()
+        }
+        };
+
+    findSentiment () {
+        const result = sentiment.analyze(this.state.message)
+        console.log(result)
+        }
+
+
+    getTokens () {
+        if (this.state.message === "") {            
+        } else {
+        const tokens = [...this.state.tokens]
+        const tokenized = this.state.message
+                .toLowerCase()
+                .replace(/\n/g, ' ')
+                .replace(/[.,\/#!?$%\^&\*;:{}=_`\"~()]/g, ' ')
+                .replace(/\s\s+/g, ' ')
+                .trim()
+                .split(' ');
+        console.log(tokenized)
+        tokens.push(tokenized)
+        this.setState({tokens})
+        }
+    }
+
+    sendReponse = _ => {
+        let messages = [...this.state.messages];
+        messages.push({"name": "sad", "source": "computer", "bg":"primary", "text": this.state.tokens[0][0],})
+        this.setState({ messages, message: "", tokens: ""});
         this.scrollToBottom()
     }
     
-
-        sendMessage = (e) => {
-            let message = [...this.state.message]
-            if (this.state.message === "") {
-            } else {
-            let messages = [...this.state.messages];
-            messages.push({"name":this.props.FriendData,"source": "human", "bg":"light", "message":this.state.message});
-            this.setState({ messages, message: "" });
-            this.mainInput.value = "";
-            this.scrollToBottom()
-            }
-          };
+    
 
     render() 
     {
@@ -107,7 +149,8 @@ class Chat extends React.Component {
         return(
             <div>
            
-            <Modal animation={false} show={ChatReady} scrollable={true} dialogClassName={this.state.welcomemodal}>
+            <Modal animation={false} show={ChatReady} scrollable={true} dialogClassName={this.state.welcomemodal} backdrop="static"
+    keyboard={false}  onHide={this.handleCloseClick}>
                 <Modal.Header>
                     Welcome to SadChat!
                 </Modal.Header>
@@ -136,15 +179,15 @@ class Chat extends React.Component {
              
             
                 
-                <Modal animation={false} show={this.state.happy} scrollable={true} dialogClassName="modal-height">
+                <Modal animation={false} show={this.state.happy} scrollable={true} dialogClassName="modal-height" backdrop="static" keyboard={false} onHide={this.state.handleCloseClick}>
                     <Modal.Header>
                     Welcome to SadChat!
                     </Modal.Header>
                     <Modal.Body>
 
                 
-                    <div>
-                        {this.state.messages.map((message, index) => (<Card bg={message.bg} className={message.source}>{message.message}</Card>))}
+                    <div key="chatboard">
+                        {this.state.messages.map((message, index) => (<Card key={index} bg={message.bg} className={message.source}>{message.text}</Card>))}
                     </div> 
                     <br/>
                     <br/>
@@ -153,7 +196,7 @@ class Chat extends React.Component {
                     </Modal.Body>
                     <Modal.Footer>                          
                         <div>
-                    <InputGroup className="mb-3">
+                    <InputGroup className="mb-3 lg" >
                     <FormControl
                         ref={(ref) => this.mainInput= ref}
                         aria-describedby="basic-addon2"
@@ -166,17 +209,17 @@ class Chat extends React.Component {
                         }
                         onKeyPress={event => {
                         if (event.key === 'Enter') {
-                        this.sendMessage()}}
+                        this.handleClick()}}
                         }
                     />
                     <InputGroup.Append>
-                    <Button variant="outline-secondary" onClick={this.sendMessage}>SendChat</Button>
+                    <Button variant="outline-secondary" onClick={this.handleClick}>Send Chat</Button>
                     </InputGroup.Append>
                     </InputGroup>
-                    
                     </div>
                     </Modal.Footer>  
              </Modal>
+             
             
              </div>
     )
