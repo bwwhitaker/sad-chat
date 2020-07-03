@@ -29,6 +29,7 @@ class Chat extends React.Component {
         tokens: [],
         responseMessage: {"name": "sad", "source": "computer", "bg":"primary", "text": "Well,"},
         messageForm: "mb-3",
+        responseToUser: "It's makes me sad to not uderstanding you. I'm just a little robot, can you be more clear?",
         happychat: false,
         messages: []
         }
@@ -95,8 +96,9 @@ class Chat extends React.Component {
     handleClick = (e) => {
         this.mainInput.value = "";
         setTimeout(this.sendMessage, 100)
-        setTimeout(this.getTokens, 400)
-        setTimeout(this.sendReponse, 1000)
+        setTimeout(this.getTokens, 200)
+        setTimeout(this.getResponse, 400)
+        setTimeout(this.sendResponse, 1000)
     }
 
     sendMessage = _ => {
@@ -135,16 +137,36 @@ class Chat extends React.Component {
         }
     }
 
-    sendReponse = _ => {
-        let messages = [...this.state.messages];
-        let responseKey = "sorry"
-        let tokenKey = this.state.tokens[0][0]
-        messages.push({"name": "sad", "source": "computer", "bg":"primary", "text": responseJSON.sorry})
-        this.setState({ messages, message: "", tokens: ""});
-        this.scrollToBottom()
+    getResponse = _ => {
+        if (this.state.message === "") {            
+        } else { 
+            let tokenforresponse = [...this.state.tokens[0]]
+            let messagegetterkey = tokenforresponse
+            let responseToUser = [...this.state.responseToUser]
+            if (messagegetterkey in responseJSON) {
+            this.setState({responseToUser : responseJSON[messagegetterkey], tokens:[]})
+            }
+        }
     }
+
+    sendResponse = _ => {
+        if (this.state.message === "") {            
+        } else { 
+            let messages = [...this.state.messages];       
+            messages.push({"name": "sad", "source": "computer", "bg":"primary", "text": this.state.responseToUser})
+            this.setState({ messages, message: "", tokens: [], responseToUser: "It's makes me sad to not uderstanding you. I'm just a little robot, can you be more clear?"});
+            this.scrollToBottom()
+    }}
     
-    
+    readJSON = _ => {
+        fetch('./responses.json')
+        .then(function(resp) {
+            return resp.json()
+        })
+        .then(function(data){
+            console.log(data)
+        })
+    }
 
     render() 
     {
