@@ -7,6 +7,7 @@ import Card from 'react-bootstrap/Card';
 import Sentiment from 'sentiment';
 import './Chat.css';
 import ReactTimeout from 'react-timeout'
+import responseJSON from './responses.json'
 
 
 const sentiment = new Sentiment()
@@ -136,7 +137,9 @@ class Chat extends React.Component {
 
     sendReponse = _ => {
         let messages = [...this.state.messages];
-        messages.push({"name": "sad", "source": "computer", "bg":"primary", "text": this.state.tokens[0][0],})
+        let responseKey = "sorry"
+        let tokenKey = this.state.tokens[0][0]
+        messages.push({"name": "sad", "source": "computer", "bg":"primary", "text": responseJSON.sorry})
         this.setState({ messages, message: "", tokens: ""});
         this.scrollToBottom()
     }
@@ -171,8 +174,7 @@ class Chat extends React.Component {
                         
                     
                     <Button variant="outline-secondary" className="Button-width" onClick={this.setHappy}>Talk About How Happy You Are?</Button>
-                    <Button variant="outline-secondary" className="Button-width" onClick={this.setyouSad}>Talk About How Sad You Are?</Button>
-                    <Button variant="outline-secondary" className="Button-width" onClick={this.setmeSad}>Ignore The Fact That I'm Sad?</Button>
+                    
                     
 
                     </Modal.Body>
@@ -200,6 +202,7 @@ class Chat extends React.Component {
                         <div>
                     <InputGroup className="mb-3 lg" >
                     <FormControl
+                        autoFocus={true}
                         ref={(ref) => this.mainInput= ref}
                         aria-describedby="basic-addon2"
                         onChange={this.updateMessage}

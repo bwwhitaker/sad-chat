@@ -38,3 +38,11 @@
 
 
     <Button variant="danger" onClick={this.clearMessages}>Clear</Button>
+
+
+
+
+
+
+    <Button variant="outline-secondary" className="Button-width" onClick={this.setyouSad}>Talk About How Sad You Are?</Button>
+                    <Button variant="outline-secondary" className="Button-width" onClick={this.setmeSad}>Ignore The Fact That I'm Sad?</Button>

@@ -43,6 +43,7 @@ class App extends React.Component {
               <Modal.Body>
                 <InputGroup className="mb-3">
                   <FormControl
+                    autoFocus={true}
                     placeholder="Who's there?"
                     aria-label="Who's there?"
                     aria-describedby="basic-addon2"
