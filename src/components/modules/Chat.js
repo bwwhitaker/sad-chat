@@ -97,8 +97,8 @@ class Chat extends React.Component {
         this.mainInput.value = "";
         setTimeout(this.sendMessage, 100)
         setTimeout(this.getTokens, 200)
-        setTimeout(this.getResponse, 400)
-        setTimeout(this.sendResponse, 1000)
+        setTimeout(this.getResponse, 300)
+        setTimeout(this.sendResponse, 400)
     }
 
     sendMessage = _ => {
