@@ -142,7 +142,6 @@ class Chat extends React.Component {
         } else { 
             let tokenforresponse = [...this.state.tokens[0]]
             let messagegetterkey = tokenforresponse
-            let responseToUser = [...this.state.responseToUser]
             if (messagegetterkey in responseJSON) {
             this.setState({responseToUser : responseJSON[messagegetterkey], tokens:[]})
             }
