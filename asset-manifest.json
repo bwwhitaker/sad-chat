@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/sad-chat/static/css/main.a2dc6b42.chunk.css",
+    "main.js": "/sad-chat/static/js/main.241a7396.chunk.js",
+    "main.js.map": "/sad-chat/static/js/main.241a7396.chunk.js.map",
+    "runtime-main.js": "/sad-chat/static/js/runtime-main.29e1b9a0.js",
+    "runtime-main.js.map": "/sad-chat/static/js/runtime-main.29e1b9a0.js.map",
+    "static/css/2.af3c1da9.chunk.css": "/sad-chat/static/css/2.af3c1da9.chunk.css",
+    "static/js/2.cd0c74bd.chunk.js": "/sad-chat/static/js/2.cd0c74bd.chunk.js",
+    "static/js/2.cd0c74bd.chunk.js.map": "/sad-chat/static/js/2.cd0c74bd.chunk.js.map",
+    "index.html": "/sad-chat/index.html",
+    "precache-manifest.fa5e3be1bf0672ff58f4f20b5bad83b7.js": "/sad-chat/precache-manifest.fa5e3be1bf0672ff58f4f20b5bad83b7.js",
+    "service-worker.js": "/sad-chat/service-worker.js",
+    "static/css/2.af3c1da9.chunk.css.map": "/sad-chat/static/css/2.af3c1da9.chunk.css.map",
+    "static/css/main.a2dc6b42.chunk.css.map": "/sad-chat/static/css/main.a2dc6b42.chunk.css.map",
+    "static/js/2.cd0c74bd.chunk.js.LICENSE.txt": "/sad-chat/static/js/2.cd0c74bd.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.29e1b9a0.js",
+    "static/css/2.af3c1da9.chunk.css",
+    "static/js/2.cd0c74bd.chunk.js",
+    "static/css/main.a2dc6b42.chunk.css",
+    "static/js/main.241a7396.chunk.js"
+  ]
+}
