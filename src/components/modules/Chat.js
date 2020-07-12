@@ -153,7 +153,7 @@ class Chat extends React.Component {
         } else { 
             let messages = [...this.state.messages];       
             messages.push({"name": "sad", "source": "computer", "bg":"primary", "text": this.state.responseToUser})
-            this.setState({ messages, message: "", tokens: [], responseToUser: "It's makes me sad to not uderstanding you. I'm just a little robot, can you be more clear?"});
+            this.setState({ messages, message: "", tokens: [], responseToUser: "It's makes me sad when I can't uderstand you. I'm just a little robot. Can you be more clear?"});
             this.scrollToBottom()
     }}
     
