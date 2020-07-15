@@ -6,8 +6,8 @@ import FormControl from 'react-bootstrap/FormControl';
 import Card from 'react-bootstrap/Card';
 import Sentiment from 'sentiment';
 import './Chat.css';
-import ReactTimeout from 'react-timeout'
-import responseJSON from './responses.json'
+import ReactTimeout from 'react-timeout';
+import responseJSON from './responses.json';
 
 
 const sentiment = new Sentiment()
@@ -102,7 +102,7 @@ class Chat extends React.Component {
     }
 
     sendMessage = _ => {
-        if (this.state.message === "") {
+        if (this.state.message === "") {                
         } else {
         let messages = [...this.state.messages];
         messages.push({"name":this.props.FriendData,"source": "human", "bg":"light", "text":this.state.message})
@@ -245,8 +245,6 @@ class Chat extends React.Component {
                     </div>
                     </Modal.Footer>  
              </Modal>
-             
-            
              </div>
     )
        
