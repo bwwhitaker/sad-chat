@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3da72a42f83fc380f0cec46615781c25",
+    "revision": "772d27192a750ff67e54317ce77e358b",
     "url": "/sad-chat/index.html"
   },
   {
-    "revision": "a2ffda242affa5a6d43e",
+    "revision": "8662418bc2e4bef6aeb8",
     "url": "/sad-chat/static/css/2.af3c1da9.chunk.css"
   },
   {
-    "revision": "d9f832a5a67b8402f75d",
+    "revision": "18d7885aebe049bda008",
     "url": "/sad-chat/static/css/main.a2dc6b42.chunk.css"
   },
   {
-    "revision": "a2ffda242affa5a6d43e",
-    "url": "/sad-chat/static/js/2.cd0c74bd.chunk.js"
+    "revision": "8662418bc2e4bef6aeb8",
+    "url": "/sad-chat/static/js/2.43dd3c78.chunk.js"
   },
   {
     "revision": "5ac48c47bb3912b14c2d8de4f56d5ae8",
-    "url": "/sad-chat/static/js/2.cd0c74bd.chunk.js.LICENSE.txt"
+    "url": "/sad-chat/static/js/2.43dd3c78.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d9f832a5a67b8402f75d",
-    "url": "/sad-chat/static/js/main.241a7396.chunk.js"
+    "revision": "18d7885aebe049bda008",
+    "url": "/sad-chat/static/js/main.564db9c2.chunk.js"
   },
   {
     "revision": "dad9888995b9bea4f343",

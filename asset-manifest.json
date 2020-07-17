@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/sad-chat/static/css/main.a2dc6b42.chunk.css",
-    "main.js": "/sad-chat/static/js/main.241a7396.chunk.js",
-    "main.js.map": "/sad-chat/static/js/main.241a7396.chunk.js.map",
+    "main.js": "/sad-chat/static/js/main.564db9c2.chunk.js",
+    "main.js.map": "/sad-chat/static/js/main.564db9c2.chunk.js.map",
     "runtime-main.js": "/sad-chat/static/js/runtime-main.29e1b9a0.js",
     "runtime-main.js.map": "/sad-chat/static/js/runtime-main.29e1b9a0.js.map",
     "static/css/2.af3c1da9.chunk.css": "/sad-chat/static/css/2.af3c1da9.chunk.css",
-    "static/js/2.cd0c74bd.chunk.js": "/sad-chat/static/js/2.cd0c74bd.chunk.js",
-    "static/js/2.cd0c74bd.chunk.js.map": "/sad-chat/static/js/2.cd0c74bd.chunk.js.map",
+    "static/js/2.43dd3c78.chunk.js": "/sad-chat/static/js/2.43dd3c78.chunk.js",
+    "static/js/2.43dd3c78.chunk.js.map": "/sad-chat/static/js/2.43dd3c78.chunk.js.map",
     "index.html": "/sad-chat/index.html",
-    "precache-manifest.8fb425ae23edc317157e4a28c0f15b80.js": "/sad-chat/precache-manifest.8fb425ae23edc317157e4a28c0f15b80.js",
+    "precache-manifest.05d786d2eacbeb001ed708bf4368f1ba.js": "/sad-chat/precache-manifest.05d786d2eacbeb001ed708bf4368f1ba.js",
     "service-worker.js": "/sad-chat/service-worker.js",
     "static/css/2.af3c1da9.chunk.css.map": "/sad-chat/static/css/2.af3c1da9.chunk.css.map",
     "static/css/main.a2dc6b42.chunk.css.map": "/sad-chat/static/css/main.a2dc6b42.chunk.css.map",
-    "static/js/2.cd0c74bd.chunk.js.LICENSE.txt": "/sad-chat/static/js/2.cd0c74bd.chunk.js.LICENSE.txt"
+    "static/js/2.43dd3c78.chunk.js.LICENSE.txt": "/sad-chat/static/js/2.43dd3c78.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.29e1b9a0.js",
     "static/css/2.af3c1da9.chunk.css",
-    "static/js/2.cd0c74bd.chunk.js",
+    "static/js/2.43dd3c78.chunk.js",
     "static/css/main.a2dc6b42.chunk.css",
-    "static/js/main.241a7396.chunk.js"
+    "static/js/main.564db9c2.chunk.js"
   ]
 }
