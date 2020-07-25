@@ -1,0 +1,22 @@
+[
+    {   "ResponseID": 1,
+        "Keywords": ["sorry", "apologies"],
+        "Response": "Don't you dare say you're sorry.",
+        "Keymatches": 0 },
+    {   "ResponseID": 2,
+        "Keywords": ["rude", "jerk", "nasty"],
+        "Response": "You think I'm the rude one?",
+        "Keymatches": 0 },
+    {   "ResponseID": 3,
+        "Keywords": ["sorry", "but"],
+        "Response": "You think I'm the rude one?",
+        "Keymatches": 0 },
+    {   "ResponseID": 4,
+        "Keywords": ["sorry", "nasty"],
+        "Response": "You think I'm the rude one?",
+        "Keymatches": 0 },
+    {   "ResponseID": 5,
+        "Keywords": ["nasty", "but"],
+        "Response": "You think I'm the rude one?",
+        "Keymatches": 0 }
+  ]

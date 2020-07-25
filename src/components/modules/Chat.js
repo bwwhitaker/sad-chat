@@ -8,10 +8,11 @@ import Sentiment from 'sentiment';
 import './Chat.css';
 import ReactTimeout from 'react-timeout';
 import responseJSON from './responses.json';
+import responseArray from './responseArray.json';
+import _ from 'lodash';
 
 
 const sentiment = new Sentiment()
-
 
 
 class Chat extends React.Component {
@@ -29,7 +30,8 @@ class Chat extends React.Component {
         tokens: [],
         responseMessage: {"name": "sad", "source": "computer", "bg":"primary", "text": "Well,"},
         messageForm: "mb-3",
-        responseToUser: "It's makes me sad to not uderstanding you. I'm just a little robot, can you be more clear?",
+        responseToUser: "It's makes me sad when I can't uderstand you. I'm just a little robot. Can you be more clear?",
+        advancedResponseToUser: "",
         happychat: false,
         messages: []
         }
@@ -39,12 +41,11 @@ class Chat extends React.Component {
         this.updateMessage = this.updateMessage.bind(this);
         this.findSentiment = this.findSentiment.bind(this);
         this.getTokens = this.getTokens.bind(this);
-
     }
 
     componentDidMount() {
-        const json = localStorage.getItem("messages");
-        const messages = JSON.parse(json);
+        const json_messages = localStorage.getItem("messages");
+        const messages = JSON.parse(json_messages);
         if (messages) {
             this.setState(() => ({ messages }));
             }
@@ -52,10 +53,13 @@ class Chat extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (prevState.messages.length !== this.state.messages.length) {
-            const json = JSON.stringify(this.state.messages);
-            localStorage.setItem("messages", json);
+            const json_messages = JSON.stringify(this.state.messages);
+            localStorage.setItem("messages", json_messages);
             }
         } 
+
+
+
 
     handleCloseClick = () => {}
     
@@ -98,8 +102,10 @@ class Chat extends React.Component {
         setTimeout(this.sendMessage, 100)
         setTimeout(this.getTokens, 200)
         setTimeout(this.getResponse, 300)
+        setTimeout(this.getResponsesC, 200)
         setTimeout(this.sendResponse, 400)
     }
+
 
     sendMessage = _ => {
         if (this.state.message === "") {                
@@ -131,7 +137,6 @@ class Chat extends React.Component {
                 .replace(/\s\s+/g, ' ')
                 .trim()
                 .split(' ');
-        console.log(tokenized)
         tokens.push(tokenized)
         this.setState({tokens})
         }
@@ -147,6 +152,45 @@ class Chat extends React.Component {
             }
         }
     }
+
+    getResponseB = _ => {
+        if (this.state.message === "") {            
+        } else { 
+            const tokensforresponse = [...this.state.tokens]
+            console.log(tokensforresponse)
+            }
+        }
+    
+    getResponsesC = () => {
+        let gatherResponses = [ ]
+        let cleanUpResponses = [ ]
+        if (this.state.message === "") {            
+        } else {
+            const tokens = [...this.state.tokens]
+            console.log(tokens)
+            _.forEach(responseArray, function(response) {
+                        _.forEach(tokens, function(token) {
+                            _.forEach(token, function(i){
+                                console.log(i)
+                                if (_.includes(response.Keywords, i)) {
+                                    console.log("yup")
+                                    const additionalResponse = {"ResponseID": response.ResponseID, "Response": response.Response, "response.Keymatches": 1};
+                                    console.log(additionalResponse)
+                                    gatherResponses.push(additionalResponse)
+                                    }
+                                })
+                        })      
+                    })
+            }
+            console.log(gatherResponses)
+            if (gatherResponses.length > 0) {
+                this.setState({advancedResponseToUser : "hey"}) 
+            } 
+            console.log(cleanUpResponses)
+            console.log(this.state.advancedResponseToUser)
+        }
+        
+    
 
     sendResponse = _ => {
         if (this.state.message === "") {            

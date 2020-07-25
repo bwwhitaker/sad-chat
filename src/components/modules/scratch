@@ -41,7 +41,10 @@
 
 
 
-
+console.log(response.Keywords)
+                            console.log(response.Response)
+                            console.log(response.ResponseID)
+                            console.log(response.Keymatches)
 
 
     <Button variant="outline-secondary" className="Button-width" onClick={this.setyouSad}>Talk About How Sad You Are?</Button>
