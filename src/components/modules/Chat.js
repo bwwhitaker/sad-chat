@@ -31,7 +31,7 @@ class Chat extends React.Component {
         responseMessage: {"name": "sad", "source": "computer", "bg":"primary", "text": "Well,"},
         messageForm: "mb-3",
         responseToUser: "It's makes me sad when I can't uderstand you. I'm just a little robot. Can you be more clear?",
-        advancedResponseToUser: "",
+        advancedResponseToUser: "It's makes me sad when I can't uderstand you. I'm just a little robot. Can you be more clear?",
         happychat: false,
         messages: []
         }
@@ -101,8 +101,7 @@ class Chat extends React.Component {
         this.mainInput.value = "";
         setTimeout(this.sendMessage, 100)
         setTimeout(this.getTokens, 200)
-        setTimeout(this.getResponse, 300)
-        setTimeout(this.getResponsesC, 200)
+        setTimeout(this.getAdvancedResponse, 200)
         setTimeout(this.sendResponse, 400)
     }
 
@@ -152,16 +151,8 @@ class Chat extends React.Component {
             }
         }
     }
-
-    getResponseB = _ => {
-        if (this.state.message === "") {            
-        } else { 
-            const tokensforresponse = [...this.state.tokens]
-            console.log(tokensforresponse)
-            }
-        }
     
-    getResponsesC = () => {
+    getAdvancedResponse = () => {
         let gatherResponses = [ ]
         let cleanUpResponses = [ ]
         if (this.state.message === "") {            
@@ -176,19 +167,29 @@ class Chat extends React.Component {
                                     console.log("yup")
                                     const additionalResponse = {"ResponseID": response.ResponseID, "Response": response.Response, "response.Keymatches": 1};
                                     console.log(additionalResponse)
-                                    gatherResponses.push(additionalResponse)
+                                    gatherResponses.push(additionalResponse.ResponseID)
                                     }
                                 })
                         })      
                     })
             }
+
+            var result = _.head(_(gatherResponses)
+                            .countBy()
+                            .entries()
+                            .maxBy(_.last))
+
             console.log(gatherResponses)
-            if (gatherResponses.length > 0) {
-                this.setState({advancedResponseToUser : "hey"}) 
-            } 
-            console.log(cleanUpResponses)
+            console.log(typeof Number(result))
+            
+            var foundResult = _.find(responseArray, {"ResponseID": Number(result)})
+            if (typeof foundResult !== "undefined") {
+                this.setState({advancedResponseToUser : foundResult.Response})
+            }
             console.log(this.state.advancedResponseToUser)
-        }
+    }
+               
+
         
     
 
@@ -196,8 +197,8 @@ class Chat extends React.Component {
         if (this.state.message === "") {            
         } else { 
             let messages = [...this.state.messages];       
-            messages.push({"name": "sad", "source": "computer", "bg":"primary", "text": this.state.responseToUser})
-            this.setState({ messages, message: "", tokens: [], responseToUser: "It's makes me sad when I can't uderstand you. I'm just a little robot. Can you be more clear?"});
+            messages.push({"name": "sad", "source": "computer", "bg":"primary", "text": this.state.advancedResponseToUser})
+            this.setState({ messages, message: "", tokens: [], responseToUser: "It's makes me sad when I can't uderstand you. I'm just a little robot. Can you be more clear?", advancedResponseToUser: "It's makes me sad when I can't uderstand you. I'm just a little robot. Can you be more clear?"});
             this.scrollToBottom()
     }}
     

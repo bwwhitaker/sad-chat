@@ -6,7 +6,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Chat from './components/modules/Chat';
 import Modal from 'react-bootstrap/Modal';
-
+import _ from 'lodash';
 
 
 class App extends React.Component {
@@ -21,7 +21,7 @@ class App extends React.Component {
   }
 
   updateFriend(event){
-    this.setState({friend : event.target.value})
+    this.setState({friend : _.capitalize(event.target.value)})
     }
     handleCloseClick = () => {}
   sendName = () => {

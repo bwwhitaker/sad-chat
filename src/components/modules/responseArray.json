@@ -18,5 +18,9 @@
     {   "ResponseID": 5,
         "Keywords": ["nasty", "but"],
         "Response": "You think I'm the rude one?",
+        "Keymatches": 0 },
+    {   "ResponseID": 6,
+        "Keywords": ["gross"],
+        "Response": "You think I'm the rude one?",
         "Keymatches": 0 }
   ]
