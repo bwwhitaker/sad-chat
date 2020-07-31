@@ -31,7 +31,7 @@ class Chat extends React.Component {
         responseMessage: {"name": "sad", "source": "computer", "bg":"primary", "text": "Well,"},
         messageForm: "mb-3",
         responseToUser: "It's makes me sad when I can't uderstand you. I'm just a little robot. Can you be more clear?",
-        advancedResponseToUser: "It's makes me sad when I can't uderstand you. I'm just a little robot. Can you be more clear?",
+        advancedResponseToUser: "It's makes me sad when I can't uderstand you. I'm just a little robot. Why can't you be more clear?",
         happychat: false,
         messages: []
         }
@@ -198,7 +198,7 @@ class Chat extends React.Component {
         } else { 
             let messages = [...this.state.messages];       
             messages.push({"name": "sad", "source": "computer", "bg":"primary", "text": this.state.advancedResponseToUser})
-            this.setState({ messages, message: "", tokens: [], responseToUser: "It's makes me sad when I can't uderstand you. I'm just a little robot. Can you be more clear?", advancedResponseToUser: "It's makes me sad when I can't uderstand you. I'm just a little robot. Can you be more clear?"});
+            this.setState({ messages, message: "", tokens: [], responseToUser: "It's makes me sad when I can't uderstand you. I'm just a little robot. Whay can't you be more clear?", advancedResponseToUser: "It's makes me sad when I can't uderstand you. I'm just a little robot. Can you be more clear?"});
             this.scrollToBottom()
     }}
     
