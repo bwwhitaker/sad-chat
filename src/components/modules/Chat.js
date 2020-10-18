@@ -154,7 +154,6 @@ class Chat extends React.Component {
     
     getAdvancedResponse = () => {
         let gatherResponses = [ ]
-        let cleanUpResponses = [ ]
         if (this.state.message === "") {            
         } else {
             const tokens = [...this.state.tokens]
@@ -239,7 +238,7 @@ class Chat extends React.Component {
                     
                         
                     
-                    <Button variant="outline-secondary" className="Button-width" onClick={this.setHappy}>Talk About How Happy You Are?</Button>
+                    <Button variant="outline-secondary" className="Button-width" autoFocus={true} onClick={this.setHappy}>Talk About How Happy You Are?</Button>
                     
                     
 
