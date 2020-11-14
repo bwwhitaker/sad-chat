@@ -1,25 +1,23 @@
 {
   "files": {
-    "main.css": "/sad-chat/static/css/main.a2dc6b42.chunk.css",
-    "main.js": "/sad-chat/static/js/main.564db9c2.chunk.js",
-    "main.js.map": "/sad-chat/static/js/main.564db9c2.chunk.js.map",
-    "runtime-main.js": "/sad-chat/static/js/runtime-main.29e1b9a0.js",
-    "runtime-main.js.map": "/sad-chat/static/js/runtime-main.29e1b9a0.js.map",
-    "static/css/2.af3c1da9.chunk.css": "/sad-chat/static/css/2.af3c1da9.chunk.css",
-    "static/js/2.43dd3c78.chunk.js": "/sad-chat/static/js/2.43dd3c78.chunk.js",
-    "static/js/2.43dd3c78.chunk.js.map": "/sad-chat/static/js/2.43dd3c78.chunk.js.map",
+    "main.css": "/sad-chat/static/css/main.90a9a0be.chunk.css",
+    "main.js": "/sad-chat/static/js/main.80be29c3.chunk.js",
+    "main.js.map": "/sad-chat/static/js/main.80be29c3.chunk.js.map",
+    "runtime-main.js": "/sad-chat/static/js/runtime-main.060358e0.js",
+    "runtime-main.js.map": "/sad-chat/static/js/runtime-main.060358e0.js.map",
+    "static/css/2.87ae5899.chunk.css": "/sad-chat/static/css/2.87ae5899.chunk.css",
+    "static/js/2.b814420f.chunk.js": "/sad-chat/static/js/2.b814420f.chunk.js",
+    "static/js/2.b814420f.chunk.js.map": "/sad-chat/static/js/2.b814420f.chunk.js.map",
     "index.html": "/sad-chat/index.html",
-    "precache-manifest.05d786d2eacbeb001ed708bf4368f1ba.js": "/sad-chat/precache-manifest.05d786d2eacbeb001ed708bf4368f1ba.js",
-    "service-worker.js": "/sad-chat/service-worker.js",
-    "static/css/2.af3c1da9.chunk.css.map": "/sad-chat/static/css/2.af3c1da9.chunk.css.map",
-    "static/css/main.a2dc6b42.chunk.css.map": "/sad-chat/static/css/main.a2dc6b42.chunk.css.map",
-    "static/js/2.43dd3c78.chunk.js.LICENSE.txt": "/sad-chat/static/js/2.43dd3c78.chunk.js.LICENSE.txt"
+    "static/css/2.87ae5899.chunk.css.map": "/sad-chat/static/css/2.87ae5899.chunk.css.map",
+    "static/css/main.90a9a0be.chunk.css.map": "/sad-chat/static/css/main.90a9a0be.chunk.css.map",
+    "static/js/2.b814420f.chunk.js.LICENSE.txt": "/sad-chat/static/js/2.b814420f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.29e1b9a0.js",
-    "static/css/2.af3c1da9.chunk.css",
-    "static/js/2.43dd3c78.chunk.js",
-    "static/css/main.a2dc6b42.chunk.css",
-    "static/js/main.564db9c2.chunk.js"
+    "static/js/runtime-main.060358e0.js",
+    "static/css/2.87ae5899.chunk.css",
+    "static/js/2.b814420f.chunk.js",
+    "static/css/main.90a9a0be.chunk.css",
+    "static/js/main.80be29c3.chunk.js"
   ]
 }
